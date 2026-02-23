@@ -1,0 +1,433 @@
+/* Custom styles for Qur'an Reader */
+
+:root {
+  --primary-emerald: #0d9488;
+  --primary-teal: #14b8a6;
+  --accent-gold: #f59e0b;
+  --bg-cream: #fefce8;
+  --bg-soft: #f0fdf4;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+}
+
+/* Base styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #10b981 #f0fdf4;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f0fdf4;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 4px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-dark);
+}
+
+.arabic-text {
+  font-family: "Noto Naskh Arabic", serif;
+  line-height: 2;
+}
+
+.japanese-text {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+}
+
+/* Volume slider custom styling */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #0d9488;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #0d9488;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Surah card hover effect */
+.surah-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.surah-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Verse styling */
+.verse-container {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.verse-container:hover {
+  border-color: #10b981;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1);
+}
+
+.verse-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Bookmark button */
+.bookmark-btn {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.verse-container:hover .bookmark-btn {
+  opacity: 1;
+}
+
+.bookmark-btn.active {
+  opacity: 1;
+  color: #f59e0b;
+}
+
+/* Audio visualizer bars */
+.audio-visualizer {
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  height: 24px;
+}
+
+.audio-bar {
+  width: 4px;
+  background: linear-gradient(to top, #0d9488, #14b8a6);
+  border-radius: 2px;
+  animation: audio-bar-dance 0.8s ease-in-out infinite;
+}
+
+.audio-bar:nth-child(1) {
+  animation-delay: 0s;
+  height: 8px;
+}
+.audio-bar:nth-child(2) {
+  animation-delay: 0.1s;
+  height: 16px;
+}
+.audio-bar:nth-child(3) {
+  animation-delay: 0.2s;
+  height: 12px;
+}
+.audio-bar:nth-child(4) {
+  animation-delay: 0.3s;
+  height: 20px;
+}
+.audio-bar:nth-child(5) {
+  animation-delay: 0.4s;
+  height: 10px;
+}
+
+@keyframes audio-bar-dance {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.6);
+  }
+}
+
+/* Progress ring */
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.35s ease;
+}
+
+/* Search highlight */
+.search-highlight {
+  background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Dark mode styles - IMPROVED */
+.dark-mode body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: #e2e8f0;
+}
+
+.dark-mode main {
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e293b 50%,
+    #0f172a 100%
+  ) !important;
+}
+
+.dark-mode .bg-white,
+.dark-mode .bg-white\/80,
+.dark-mode .bg-white\/90,
+.dark-mode .bg-white\/95 {
+  background-color: rgba(30, 41, 59, 0.95) !important;
+}
+
+.dark-mode header {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  border-color: rgba(94, 234, 212, 0.2);
+}
+
+.dark-mode .text-emerald-900 {
+  color: #5eead4;
+}
+
+.dark-mode .text-emerald-700 {
+  color: #2dd4bf;
+}
+
+.dark-mode .text-emerald-600 {
+  color: #5eead4;
+}
+
+.dark-mode .text-emerald-800 {
+  color: #99f6e4;
+}
+
+.dark-mode .text-slate-700 {
+  color: #cbd5e1;
+}
+
+.dark-mode .border-emerald-100,
+.dark-mode .border-emerald-200,
+.dark-mode .border-emerald-300 {
+  border-color: rgba(94, 234, 212, 0.3);
+}
+
+.dark-mode .bg-emerald-50,
+.dark-mode .bg-emerald-50\/50,
+.dark-mode .bg-emerald-100 {
+  background-color: rgba(13, 148, 136, 0.2) !important;
+}
+
+.dark-mode .bg-emerald-600 {
+  background-color: #0d9488;
+}
+
+.dark-mode .hover\:bg-emerald-50:hover,
+.dark-mode .hover\:bg-emerald-100:hover {
+  background-color: rgba(13, 148, 136, 0.3) !important;
+}
+
+.dark-mode .verse-container {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.8) 0%,
+    rgba(51, 65, 85, 0.8) 100%
+  );
+  border-color: rgba(94, 234, 212, 0.2);
+}
+
+.dark-mode .verse-container:hover {
+  border-color: rgba(94, 234, 212, 0.4);
+  box-shadow: 0 4px 12px rgba(94, 234, 212, 0.15);
+}
+
+.dark-mode .surah-card {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.9) 0%,
+    rgba(51, 65, 85, 0.9) 100%
+  );
+  border-color: rgba(94, 234, 212, 0.2);
+}
+
+.dark-mode .surah-card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 1) 0%,
+    rgba(51, 65, 85, 1) 100%
+  );
+  border-color: rgba(94, 234, 212, 0.4);
+}
+
+.dark-mode input {
+  background-color: rgba(30, 41, 59, 0.9);
+  border-color: rgba(94, 234, 212, 0.3);
+  color: #e2e8f0;
+}
+
+.dark-mode input::placeholder {
+  color: #64748b;
+}
+
+.dark-mode .text-emerald-500 {
+  color: #5eead4;
+}
+
+.dark-mode #audio-player {
+  background-color: rgba(15, 23, 42, 0.98) !important;
+  border-color: rgba(94, 234, 212, 0.2);
+}
+
+.dark-mode select {
+  background-color: rgba(30, 41, 59, 0.9);
+  color: #e2e8f0;
+  border-color: rgba(94, 234, 212, 0.3);
+}
+
+.dark-mode select option {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.dark-mode .text-slate-400 {
+  color: #94a3b8;
+}
+
+.dark-mode .text-amber-500 {
+  color: #fbbf24;
+}
+
+.dark-mode .hover\:bg-amber-50:hover {
+  background-color: rgba(251, 191, 36, 0.15) !important;
+}
+
+.dark-mode .text-emerald-400 {
+  color: #2dd4bf;
+}
+
+.dark-mode .bg-emerald-200 {
+  background-color: rgba(94, 234, 212, 0.3);
+}
+
+.dark-mode .play-verse-btn:hover {
+  background-color: rgba(94, 234, 212, 0.2) !important;
+}
+
+.dark-mode .bookmark-btn:hover {
+  background-color: rgba(251, 191, 36, 0.15) !important;
+}
+
+/* Currently playing verse highlight */
+.verse-container.currently-playing {
+  border-color: #10b981;
+  box-shadow:
+    0 0 0 3px rgba(16, 185, 129, 0.3),
+    0 4px 12px rgba(16, 185, 129, 0.2);
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  position: relative;
+}
+
+.verse-container.currently-playing::before {
+  content: "▶";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.dark-mode .verse-container.currently-playing {
+  border-color: #2dd4bf;
+  box-shadow:
+    0 0 0 3px rgba(45, 212, 191, 0.3),
+    0 4px 12px rgba(45, 212, 191, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(6, 78, 59, 0.5) 0%,
+    rgba(5, 150, 105, 0.3) 100%
+  );
+}
+
+.dark-mode .verse-container.currently-playing::before {
+  background: #2dd4bf;
+  color: #064e3b;
+}
+
+/* Verse container clickable area */
+.verse-container {
+  cursor: pointer;
+}
+
+.verse-container .bookmark-btn {
+  cursor: pointer;
+}
+
+/* Loading shimmer effect */
+.shimmer {
+  background: linear-gradient(90deg, #f0fdf4 25%, #e0f2fe 50%, #f0fdf4 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: inherit;
+}
