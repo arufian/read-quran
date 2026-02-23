@@ -717,6 +717,19 @@ class QuranApp {
         document.body.classList.toggle('dark-mode');
         const isDark = document.body.classList.contains('dark-mode');
         localStorage.setItem('quran-dark-mode', isDark);
+
+        // Toggle icons
+        const moonIcon = document.getElementById('theme-icon-moon');
+        const sunIcon = document.getElementById('theme-icon-sun');
+        if (moonIcon && sunIcon) {
+            if (isDark) {
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+            } else {
+                moonIcon.classList.remove('hidden');
+                sunIcon.classList.add('hidden');
+            }
+        }
     }
 
     checkLastRead() {
@@ -776,4 +789,11 @@ const app = new QuranApp();
 
 if (localStorage.getItem('quran-dark-mode') === 'true') {
     document.body.classList.add('dark-mode');
+    // Set sun icon visible on load if dark mode
+    const moonIcon = document.getElementById('theme-icon-moon');
+    const sunIcon = document.getElementById('theme-icon-sun');
+    if (moonIcon && sunIcon) {
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+    }
 }
