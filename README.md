@@ -79,6 +79,7 @@ We welcome contributions! Here's how you can help:
 
 ## Roadmap
 
+- [ ] Change TTS voice using more natural voices
 - [ ] Add more language translations
 - [ ] Implement text search within Surahs
 - [ ] Add tafsir (explanation) support
