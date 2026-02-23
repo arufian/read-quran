@@ -31,7 +31,7 @@ Visit the app: [https://arufian.github.io/read-quran](https://arufian.github.io/
 
 ## Technical Details
 
-- **API**: Uses [Quran.com API](https://api.quran.com) for translations and chapter data
+- **API**: Uses [Quran.com API](https://api-docs.quran.foundation/) for translations and chapter data
 - **Styling**: Tailwind CSS with custom animations
 - **Audio**: HTML5 Audio with real nature sounds (birds, rain, ocean waves)
 - **Storage**: LocalStorage for bookmarks, reading progress, and preferences

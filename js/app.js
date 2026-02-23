@@ -68,7 +68,7 @@ class QuranApp {
             },
             ja: {
                 appTitle: "Read Qur'an",
-                heroTitle: 'コーランを読む',
+                heroTitle: 'クルアーンを読む',
                 heroSubtitle: '美しい翻訳でクルアーンを体験してください。',
                 continueReading: '続きを読む',
                 browseSurahs: '章を閲覧',
