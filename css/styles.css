@@ -373,6 +373,30 @@ input[type="range"]::-moz-range-thumb {
   border-color: rgba(94, 234, 212, 0.2);
 }
 
+/* Dark mode Surah number circle */
+.dark-mode .surah-card .bg-emerald-100 {
+  background-color: rgba(94, 234, 212, 0.3) !important;
+  color: #5eead4 !important;
+}
+
+/* Dark mode app title */
+.dark-mode #app-title {
+  background: linear-gradient(to right, #5eead4, #2dd4bf) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Dark mode GitHub star button */
+.dark-mode a[href*="github.com"] {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+.dark-mode a[href*="github.com"]:hover {
+  background-color: #e5e7eb !important;
+}
+
 /* Verse container clickable area */
 .verse-container {
   cursor: pointer;
@@ -380,6 +404,46 @@ input[type="range"]::-moz-range-thumb {
 
 .verse-container .bookmark-btn {
   cursor: pointer;
+}
+
+/* Language selector */
+#language-selector {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+#lang-indicator {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lang-btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.lang-btn.text-emerald-800 {
+  color: #065f46;
+}
+
+.lang-btn.text-emerald-600 {
+  color: #059669;
+}
+
+.dark-mode #language-selector {
+  background: rgba(94, 234, 212, 0.15);
+}
+
+.dark-mode #lang-indicator {
+  background: rgba(6, 78, 59, 0.8);
+}
+
+.dark-mode .lang-btn.text-emerald-800 {
+  color: #5eead4;
+}
+
+.dark-mode .lang-btn.text-emerald-600 {
+  color: #2dd4bf;
 }
 
 /* Loading shimmer effect */

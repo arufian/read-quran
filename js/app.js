@@ -339,8 +339,12 @@ class QuranApp {
     }
 
     setupEventListeners() {
-        document.getElementById('language-select')?.addEventListener('change', (e) => {
-            this.changeLanguage(e.target.value);
+        // Language selector buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.closest('.lang-btn').dataset.lang;
+                this.changeLanguage(lang);
+            });
         });
         document.getElementById('theme-toggle')?.addEventListener('click', () => this.toggleTheme());
         document.getElementById('browse-surahs')?.addEventListener('click', () => this.showLibrary());
@@ -579,7 +583,7 @@ class QuranApp {
         div.className = 'surah-card bg-white rounded-xl p-5 border border-emerald-100 cursor-pointer';
         div.innerHTML = `
             <div class="flex items-start justify-between mb-3">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center text-emerald-700 font-bold">${surah.id}</div>
+                <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center font-bold" style="color: #14645a;">${surah.id}</div>
                 <div class="text-right">
                     <p class="arabic-text text-xl text-emerald-800 font-medium">${surah.name_arabic}</p>
                 </div>
@@ -714,6 +718,7 @@ class QuranApp {
         this.currentLanguage = lang;
         localStorage.setItem('quran-language', lang);
         this.updateAllUIText();
+        this.loadLanguagePreference();
 
         if (this.currentView === 'reader' && this.currentSurah) {
             this.openSurah(this.currentSurah);
@@ -723,8 +728,22 @@ class QuranApp {
     }
 
     loadLanguagePreference() {
-        const select = document.getElementById('language-select');
-        if (select) select.value = this.currentLanguage;
+        const buttons = document.querySelectorAll('.lang-btn');
+        const indicator = document.getElementById('lang-indicator');
+
+        buttons.forEach(btn => {
+            const isActive = btn.dataset.lang === this.currentLanguage;
+            btn.classList.toggle('text-emerald-800', isActive);
+            btn.classList.toggle('text-emerald-600', !isActive);
+
+            // Move indicator to active button
+            if (isActive && indicator) {
+                const btnRect = btn.getBoundingClientRect();
+                const containerRect = btn.parentElement.getBoundingClientRect();
+                indicator.style.width = btnRect.width + 'px';
+                indicator.style.transform = `translateX(${btnRect.left - containerRect.left - 4}px)`;
+            }
+        });
     }
 
     toggleTheme() {
