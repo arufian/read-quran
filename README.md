@@ -13,9 +13,9 @@ A beautiful, user-friendly web application for reading the Qur'an in multiple la
 - **Responsive Design**: Works beautifully on desktop, tablet, and mobile
 - **Dark Mode**: Easy on the eyes for night reading
 - **Keyboard Shortcuts**:
-  - `Space` - Toggle ambient audio
-  - `Ctrl + ←` - Previous Surah
-  - `Ctrl + →` - Next Surah
+  - `Space` - Toggle read aloud (start/stop continuous reading)
+  - `Shift + ←` - Previous Surah
+  - `Shift + →` - Next Surah
 
 ## Live Application
 

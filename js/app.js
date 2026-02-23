@@ -359,18 +359,32 @@ class QuranApp {
         document.getElementById('audio-toggle')?.addEventListener('click', () => this.toggleAudio());
         document.getElementById('volume-slider')?.addEventListener('input', (e) => this.setVolume(e.target.value / 100));
 
-        // Spacebar shortcut to stop or resume reading
+        // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
+            // Space - Toggle read aloud
             if (e.code === 'Space') {
                 e.preventDefault();
                 if (this.isContinuousReading) {
-                    // Stop if currently reading
                     this.stopContinuousReading();
                 } else if (this.currentView === 'reader' && this.versesData.length > 0) {
-                    // Resume if in reader view with verses loaded
                     this.startContinuousReading();
                 }
-                // Do nothing if nothing to resume
+            }
+
+            // Shift + ArrowLeft - Previous Surah
+            if (e.shiftKey && e.code === 'ArrowLeft') {
+                e.preventDefault();
+                if (this.currentView === 'reader' && this.currentSurah && this.currentSurah > 1) {
+                    this.openSurah(this.currentSurah - 1);
+                }
+            }
+
+            // Shift + ArrowRight - Next Surah
+            if (e.shiftKey && e.code === 'ArrowRight') {
+                e.preventDefault();
+                if (this.currentView === 'reader' && this.currentSurah && this.currentSurah < 114) {
+                    this.openSurah(this.currentSurah + 1);
+                }
             }
         });
     }
