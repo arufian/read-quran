@@ -31,7 +31,7 @@ class QuranApp {
             en: {
                 appTitle: "Read Qur'an",
                 heroTitle: "Read the Qur'an",
-                heroSubtitle: 'Experience the holy book with beautiful translations.',
+                heroSubtitle: "Experience the holy Qur'an with beautiful translations.",
                 continueReading: 'Continue Reading',
                 browseSurahs: 'Browse Surahs',
                 surahs: 'Surahs',
@@ -50,7 +50,7 @@ class QuranApp {
             id: {
                 appTitle: "Read Qur'an",
                 heroTitle: 'Baca Al-Quran',
-                heroSubtitle: 'Rasakan kitab suci dengan terjemahan indah.',
+                heroSubtitle: "Rasakan Al-Qur'an dengan terjemahan indah.",
                 continueReading: 'Lanjutkan Membaca',
                 browseSurahs: 'Jelajahi Surat',
                 surahs: 'Surat',
@@ -69,7 +69,7 @@ class QuranApp {
             ja: {
                 appTitle: "Read Qur'an",
                 heroTitle: 'コーランを読む',
-                heroSubtitle: '美しい翻訳で聖典を体験してください。',
+                heroSubtitle: '美しい翻訳でクルアーンを体験してください。',
                 continueReading: '続きを読む',
                 browseSurahs: '章を閲覧',
                 surahs: '章',
